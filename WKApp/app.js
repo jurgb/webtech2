@@ -1,15 +1,20 @@
-
 /**
  * Module dependencies.
  */
 
 var express = require('express');
+var faye = require('faye');
 var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 
 var app = express();
+
+//db vars
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('mongodb://<user>:<password>@kahana.mongohq.com:10023/WKApp');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
