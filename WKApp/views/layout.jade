@@ -4,4 +4,10 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+   div#logo
+    a(href="/")
+     img(src="../public/images/imd.png", alt="logo")
+   nav
+    a(href="/newuser")= "Register"
+    a(href="/admin")= "Admin-pagina"
     block content

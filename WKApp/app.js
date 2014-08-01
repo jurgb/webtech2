@@ -14,7 +14,7 @@ var app = express();
 //db vars
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('mongodb://<user>:<password>@kahana.mongohq.com:10023/WKApp');
+var db = monk('mongodb://admin:azerty@kahana.mongohq.com:10023/WKApp');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -33,8 +33,14 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+//GET
 app.get('/', routes.index);
 app.get('/users', user.list);
+app.get('/newuser', routes.newuser);
+app.get('/admin', routes.admin);
+
+//POST
+app.post('/newuser', routes.adduser(db));
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
