@@ -2,12 +2,14 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='/stylesheets/reset.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-   div#logo
-    a(href="/")
-     img(src="../public/images/imd.png", alt="logo")
-   nav
-    a(href="/newuser")= "Register"
-    a(href="/admin")= "Admin-pagina"
-    block content
+   div(id='wrapper')
+    div#logo
+     a(href="/")
+      img(src='images/imd.png', alt="logo")
+    nav
+     a(href="/newuser")= "Register"
+     a(href="/admin")= "Admin-pagina"
+     block content

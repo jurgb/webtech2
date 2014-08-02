@@ -1,0 +1,38 @@
+/*variabelen*/
+$bgGreen : #A9EED1;
+$fgGreen : #6FAB92;
+
+#wrapper {
+	width: 980px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: $fgGreen;
+	margin-top: 5px;
+	padding: 50px;
+	padding-left:25px;
+	padding-right: 25px;
+	border-radius: 15px;
+	border: 2px solid #428569;
+}
+body{
+	background-color: $bgGreen;
+	color: #F0F0F0;
+}
+
+nav a:link,
+nav a:visited,
+nav a:hover,
+nav a:active
+{
+	width: 25%;
+	display:inline-block;
+	background-color: $bgGreen;
+	border: 2px solid #428569;
+	text-align:center;
+	color: #000;
+	text-decoration:none;
+}
+
+nav a:hover{
+	color: #696969;
+}

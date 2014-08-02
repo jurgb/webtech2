@@ -1,0 +1,64 @@
+#ploeg1,
+#ploeg2,
+#scoreploeg1,
+#scoreploeg2{
+	width: 200px;
+	display: inline-block;
+	margin-bottom: 50px;
+	margin-top: 50px;
+}
+
+#dash{
+	width: 5%;
+	text-align: center;
+	display:inline-block;
+}
+
+#ploeg1,
+#scoreploeg2{
+	margin-right:5%;
+}
+#scoreploeg1{
+	margin-right: 2,5%;
+}
+#scoreploeg2{
+	margin-left: 2,5%;
+}
+#ploeg2{
+	margin-right: 0%;
+}
+
+#detailsploeg1,
+#detailsploeg2{
+	display:block;
+	width: 310px;
+}
+#detailsploeg1{
+	float:left;
+}
+#detailsploeg2{
+	float:right;
+}
+
+input.detailsploeg1,
+input.detailsploeg2{
+	width: 100px;
+	display: inline-block;
+}
+label.detailsploeg1,
+label.detailsploeg2{
+	width: 200px;
+	display: inline-block;
+}
+#submitdetails{
+	float:right;
+	margin-top:50px;
+}
+
+#updates{
+	width: 150px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	margin-bottom:150px;
+}

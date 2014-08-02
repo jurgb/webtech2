@@ -39,6 +39,8 @@ exports.savechange = function(db) {
     return function(req, res) {
         var land1 = req.body.ploeg1;
         var land2 = req.body.ploeg2;
+        var land1score = req.body.scoreploeg1;
+        var land2score = req.body.scoreploeg2;
 
         
 
@@ -46,10 +48,13 @@ exports.savechange = function(db) {
             var collection = db.get('matches');
 
             // Submit to the DB
-            collection.insert({
+            collection.update({
+                "_id" : "54dd45818131d0b94fd2eb8c"},{
                 "land1" : land1,
-                "land2" : land2
-            });
+                "land2" : land2,
+                "scoreland1" : land1score,
+                "scoreland2" : land2score
+                });
 
         
     }
