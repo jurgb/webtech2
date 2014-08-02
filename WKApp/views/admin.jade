@@ -1,5 +1,114 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+   form(name='matchdetails', action='/admin', method='post')
+      select#ploeg1(name='ploeg1')
+        option(value='empty') Choose a country
+        option(value='Brazil') Brazil
+        option(value='Mexico') Mexico
+        option(value='Croatia') Croatia
+        option(value='Cameroon') Cameroon
+        option(value='Netherlands') Netherlands
+        option(value='Chile') Chile
+        option(value='Spain') Spain
+        option(value='Ausralia') Ausralia
+        option(value='Colombia') Colombia
+        option(value='Greece') Greece
+        option(value='Cotedivoire') Côte d'ivoire
+        option(value='Japan') Japan
+        option(value='Costarica') Costa rica
+        option(value='Uruguay') Uruguay
+        option(value='Italy') Italy
+        option(value='England') England
+        option(value='France') France
+        option(value='Switzerland') Switzerland
+        option(value='Ecuador') Ecuador
+        option(value='Honduras') Honduras
+        option(value='Argentina') Nigeria
+        option(value='Nigeria') Nigeria
+        option(value='Bosniaandherzegovina') Bosnia and herzegovina
+        option(value='Iran') Iran
+        option(value='Germany') Germany
+        option(value='Usa') Usa
+        option(value='Portugal') Portugal
+        option(value='Ghana') Ghana
+        option(value='Belgium') Belgium
+        option(value='Algeria') Algeria
+        option(value='Russia') Russia
+        option(value='Korearepublic') Korea republic
+      input(type='text')
+      label -
+      input(type='text')
+      select#ploeg2(name="ploeg2")
+        option(value='empty') Choose a country
+        option(value='Brazil') Brazil
+        option(value='Mexico') Mexico
+        option(value='Croatia') Croatia
+        option(value='Cameroon') Cameroon
+        option(value='Netherlands') Netherlands
+        option(value='Chile') Chile
+        option(value='Spain') Spain
+        option(value='Ausralia') Ausralia
+        option(value='Colombia') Colombia
+        option(value='Greece') Greece
+        option(value='Cotedivoire') Côte d'ivoire
+        option(value='Japan') Japan
+        option(value='Costarica') Costa rica
+        option(value='Uruguay') Uruguay
+        option(value='Italy') Italy
+        option(value='England') England
+        option(value='France') France
+        option(value='Switzerland') Switzerland
+        option(value='Ecuador') Ecuador
+        option(value='Honduras') Honduras
+        option(value='Argentina') Nigeria
+        option(value='Nigeria') Nigeria
+        option(value='Bosniaandherzegovina') Bosnia and herzegovina
+        option(value='Iran') Iran
+        option(value='Germany') Germany
+        option(value='Usa') Usa
+        option(value='Portugal') Portugal
+        option(value='Ghana') Ghana
+        option(value='Belgium') Belgium
+        option(value='Algeria') Algeria
+        option(value='Russia') Russia
+        option(value='Korearepublic') Korea republic
+      label(for='foulsploeg1') Fouls
+      input#foulsploeg1(type='text')
+      label(for='shotsploeg1') Shots
+      input#shotsploeg1(type='text')
+      label(for='shotsongoalploeg1') Shots on goal
+      input#shotsongoalploeg1(type='text')
+      label(for='passpercentploeg1') Pass %
+      input#passpercentploeg1(type='text')
+      label(for='posessionploeg1') Posession %
+      input#posessionploeg1(type='text')
+      label(for='yellowcardploeg1') Yellow cards
+      input#yellowcardploeg1(type='text')
+      label(for='redcardploeg1') Red cards
+      input#redcardploeg1(type='text')
+      label(for='foulsploeg2') Fouls
+      input#foulsploeg2(type='text')
+      label(for='shotsploeg2') Shots
+      input#shotsploeg2(type='text')
+      label(for='shotsongoalploeg2') Shots on goal
+      input#shotsongoalploeg2(type='text')
+      label(for='passpercentploeg2') Pass %
+      input#passpercentploeg2(type='text')
+      label(for='posessionploeg2') Posession %
+      input#posessionploeg2(type='text')
+      label(for='yellowcardploeg2') Yellow cards
+      input#yellowcardploeg2(type='text')
+      label(for='redcardploeg2') Red cards
+      input#redcardploeg2(type='text')
+      input(type='submit', value='Save changes')
+    form(action='', method='post')
+      select
+        option(value='goal' class='updateoption') Goal
+        option(value='foul' class='updateoption') Foul
+        option(value='yellow' class='updateoption') Yellow card
+        option(value='red' class='updateoption') Red card
+        option(value='swap' class='updateoption') Swap
+      input#speler(type='text', placeholder='Speler')
+      input#minuut(type='text', placeholder='Minuut')
+      input(type='submit', value='Post Update')

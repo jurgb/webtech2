@@ -35,4 +35,23 @@ exports.adduser = function(db) {
     	}
     }
 }
+exports.savechange = function(db) {
+    return function(req, res) {
+        var land1 = req.body.ploeg1;
+        var land2 = req.body.ploeg2;
+
+        
+
+            // Collection aanmaken
+            var collection = db.get('matches');
+
+            // Submit to the DB
+            collection.insert({
+                "land1" : land1,
+                "land2" : land2
+            });
+
+        
+    }
+}
         	
