@@ -4,8 +4,19 @@ block content
   -if(overzicht)
     p uhm hellaaa
    
-    p= overzicht.land1 + " vs " + overzicht.land2
-   
-   
+    p(id='test')= overzicht.land1 + " vs " + overzicht.land2
+
+    div(id='testfaye')
+
+  script.
+    var client = new Faye.Client('/faye',{
+     timeout: 20
+    });
+
+    client.subscribe('/channel', function(message) {
+     $('#test').html(message.ploeg1 + ' vs ' + message.ploeg2 + 'it works!!!!!!')
+     console.log(message)
+    });
+    console.log('checking');
 
   

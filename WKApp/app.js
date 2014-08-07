@@ -16,6 +16,14 @@ var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('mongodb://admin:azerty@kahana.mongohq.com:10023/WKApp');
 
+//faye server voor realtime gegevens
+var bayeux = new faye.NodeAdapter({
+    	mount: '/faye',
+    	timeout: 45
+    });
+var server = http.createServer(app);
+bayeux.attach(server);
+
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -47,6 +55,8 @@ app.post('/admin', routes.savechange(db));
 app.post('/update', routes.update(db));
 //app.post('/scoreboard', routes.clickdatshit(db));
 
-http.createServer(app).listen(app.get('port'), function(){
+/*http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
-});
+});*/
+server.listen(process.env.PORT ||3000);
+console.log("App launched on port 3000");

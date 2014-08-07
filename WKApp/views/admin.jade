@@ -1,7 +1,7 @@
 extends layout
 
 block content
-   form(name='matchdetails', action='/admin', method='post')
+   form(name='matchdetails',id="matchdetails", action='/admin', method='post')
       select#ploeg1(name='ploeg1')
         option(value=overzicht.land1)= overzicht.land1
         option(value='Brazil') Brazil
@@ -114,3 +114,19 @@ block content
       input#speler(type='text', placeholder='Speler' name='speler')
       input#minuut(type='text', placeholder='Minuut' name='minuut')
       input(type='submit', value='Post Update')
+
+    script.
+      var client = new Faye.Client('/faye',{
+       timeout: 20
+      });
+
+      $('#matchdetails').submit(function() {
+       client.publish('/channel', {
+        ploeg1: $('#ploeg1').val(),
+        ploeg2: $('#ploeg2').val()
+       });
+       console.log('test');
+       return false;
+      });
+
+

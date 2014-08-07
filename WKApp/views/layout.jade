@@ -4,6 +4,10 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/reset.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='http://code.jquery.com/jquery-latest.min.js')
+    script(src='/faye/browser/faye-browser.js')
+    script(src='/faye/client.js')
+
   body
    div(id='wrapper')
     div#logo
@@ -13,4 +17,4 @@ html
      a(href="/newuser")= "Register"
      a(href="/scoreboard")= "Scoreboard"
      a(href="/admin")= "Admin-pagina"
-     block content
+    block content
