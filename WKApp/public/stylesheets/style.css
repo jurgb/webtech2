@@ -1,4 +1,10 @@
 /*variabelen*/
+/*
+	Command to watch Sass -> make sure you are in the scss folder before executing the command
+
+	sass --watch style.scss:../style.css
+
+*/
 #wrapper {
   width: 980px;
   margin-left: auto;
@@ -29,6 +35,10 @@ nav a:active {
 
 nav a:hover {
   color: #696969; }
+
+form,
+form input {
+  text-align: center; }
 
 #ploeg1,
 #ploeg2,
@@ -70,7 +80,9 @@ nav a:hover {
 
 input.detailsploeg1,
 input.detailsploeg2 {
-  width: 100px;
+  width: 50px;
+  margin-left: 25px;
+  margin-right: 25px;
   display: inline-block; }
 
 label.detailsploeg1,

@@ -1,3 +1,7 @@
+form,
+form input{
+	text-align:center;
+}
 #ploeg1,
 #ploeg2,
 #scoreploeg1,
@@ -42,7 +46,9 @@
 
 input.detailsploeg1,
 input.detailsploeg2{
-	width: 100px;
+	width: 50px;
+	margin-left:25px;
+	margin-right: 25px;
 	display: inline-block;
 }
 label.detailsploeg1,

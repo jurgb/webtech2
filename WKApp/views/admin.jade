@@ -3,7 +3,7 @@ extends layout
 block content
    form(name='matchdetails', action='/admin', method='post')
       select#ploeg1(name='ploeg1')
-        option(value='empty') Choose a country
+        option(value=overzicht.land1)= overzicht.land1
         option(value='Brazil') Brazil
         option(value='Mexico') Mexico
         option(value='Croatia') Croatia
@@ -36,11 +36,11 @@ block content
         option(value='Algeria') Algeria
         option(value='Russia') Russia
         option(value='Korearepublic') Korea republic
-      input#scoreploeg1(type='text' name='scoreploeg1')
+      input#scoreploeg1(type='text' name='scoreploeg1' value= overzicht.land1score)
       label#dash -
-      input#scoreploeg2(type='text' name='scoreploeg2')
+      input#scoreploeg2(type='text' name='scoreploeg2' value= overzicht.land2score)
       select#ploeg2(name="ploeg2")
-        option(value='empty') Choose a country
+        option(value=overzicht.land2)= overzicht.land2
         option(value='Brazil') Brazil
         option(value='Mexico') Mexico
         option(value='Croatia') Croatia
@@ -75,42 +75,42 @@ block content
         option(value='Korearepublic') Korea republic
       fieldset#detailsploeg1
         label(for='foulsploeg1' class='detailsploeg1') Fouls
-        input#foulsploeg1(type='text' class='detailsploeg1')
+        input#foulsploeg1(type='text' class='detailsploeg1' name='foulsploeg1' value= overzicht.land1fouls)
         label(for='shotsploeg1' class='detailsploeg1') Shots
-        input#shotsploeg1(type='text' class='detailsploeg1')
+        input#shotsploeg1(type='text' class='detailsploeg1' name='shotsploeg1' value= overzicht.land1shots)
         label(for='shotsongoalploeg1' class='detailsploeg1') Shots on goal
-        input#shotsongoalploeg1(type='text' class='detailsploeg1')
+        input#shotsongoalploeg1(type='text' class='detailsploeg1' name='shotsongoalploeg1' value= overzicht.land1shotsongoal)
         label(for='passpercentploeg1' class='detailsploeg1') Pass %
-        input#passpercentploeg1(type='text' class='detailsploeg1')
+        input#passpercentploeg1(type='text' class='detailsploeg1' name='passpercentploeg1' value= overzicht.land1pass)
         label(for='posessionploeg1' class='detailsploeg1') Posession %
-        input#posessionploeg1(type='text' class='detailsploeg1')
+        input#posessionploeg1(type='text' class='detailsploeg1' name='posessionploeg1' value= overzicht.land1posession)
         label(for='yellowcardploeg1' class='detailsploeg1') Yellow cards
-        input#yellowcardploeg1(type='text' class='detailsploeg1')
+        input#yellowcardploeg1(type='text' class='detailsploeg1' name='yellowcardploeg1' value= overzicht.land1yellow)
         label(for='redcardploeg1' class='detailsploeg1') Red cards
-        input#redcardploeg1(type='text' class='detailsploeg1')
+        input#redcardploeg1(type='text' class='detailsploeg1' name='redcardploeg1' value= overzicht.land1red)
       fieldset#detailsploeg2
         label(for='foulsploeg2' class='detailsploeg2') Fouls
-        input#foulsploeg2(type='text' class='detailsploeg2')
-        label(for='shotsploeg2' class='detailsploeg2') Shots
-        input#shotsploeg2(type='text' class='detailsploeg2')
+        input#foulsploeg2(type='text' class='detailsploeg2' name='foulsploeg2' value= overzicht.land2fouls)
+        label(for='shotsploeg2' class='detailsploeg1') Shots
+        input#shotsploeg2(type='text' class='detailsploeg2' name='shotsploeg2' value= overzicht.land2shots)
         label(for='shotsongoalploeg2' class='detailsploeg2') Shots on goal
-        input#shotsongoalploeg2(type='text' class='detailsploeg2')
+        input#shotsongoalploeg2(type='text' class='detailsploeg2' name='shotsongoalploeg2' value= overzicht.land2shotsongoal)
         label(for='passpercentploeg2' class='detailsploeg2') Pass %
-        input#passpercentploeg2(type='text' class='detailsploeg2')
+        input#passpercentploeg2(type='text' class='detailsploeg2' name='passpercentploeg2' value= overzicht.land2pass)
         label(for='posessionploeg2' class='detailsploeg2') Posession %
-        input#posessionploeg2(type='text' class='detailsploeg2')
+        input#posessionploeg2(type='text' class='detailsploeg2' name='posessionploeg2' value= overzicht.land2posession)
         label(for='yellowcardploeg2' class='detailsploeg2') Yellow cards
-        input#yellowcardploeg2(type='text' class='detailsploeg2')
+        input#yellowcardploeg2(type='text' class='detailsploeg2' name='yellowcardploeg2' value= overzicht.land2yellow)
         label(for='redcardploeg2' class='detailsploeg2') Red cards
-        input#redcardploeg2(type='text' class='detailsploeg2')
+        input#redcardploeg2(type='text' class='detailsploeg2' name='redcardploeg2' value= overzicht.land2red)
         input#submitdetails(type='submit', value='Save changes')
-    form#updates(name="updates" action='', method='post')
-      select
+    form#updates(name="updates" action='/update', method='post')
+      select(name='type')
         option(value='goal' class='updateoption') Goal
         option(value='foul' class='updateoption') Foul
         option(value='yellow' class='updateoption') Yellow card
         option(value='red' class='updateoption') Red card
         option(value='swap' class='updateoption') Swap
-      input#speler(type='text', placeholder='Speler')
-      input#minuut(type='text', placeholder='Minuut')
+      input#speler(type='text', placeholder='Speler' name='speler')
+      input#minuut(type='text', placeholder='Minuut' name='minuut')
       input(type='submit', value='Post Update')
