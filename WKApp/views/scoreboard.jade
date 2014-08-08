@@ -2,11 +2,51 @@ extends layout
 
 block content
   -if(overzicht)
-    p uhm hellaaa
-   
-    p(id='test')= overzicht.land1 + " vs " + overzicht.land2
+    div#scoreboardploeg1
+     img(src="images/" +overzicht.land1 + ".png")
+     p= overzicht.land1
+    div#scoreboard
+     p(class="points")= overzicht.land1score
+     p -
+     p(class="points")= overzicht.land2score
+    div#scoreboardploeg2 
+     img(src="images/" + overzicht.land2 + ".png")
+     p= overzicht.land2
+    div#detailsploeg1
+     p(class="titels") fouls
+     p(class="ploegdetails")= overzicht.land1fouls
+     p(class="titels") shots
+     p(class="ploegdetails")= overzicht.land1shots
+     p(class="titels") shotsongoal
+     p(class="ploegdetails")= overzicht.land1shotsongoal
+     p(class="titels") pass %
+     p(class="ploegdetails")= overzicht.land1pass
+     p(class="titels") posession %
+     p(class="ploegdetails")= overzicht.land1posession
+     p(class="titels") yellow cards
+     p(class="ploegdetails")= overzicht.land1yellow
+     p(class="titels") red cards
+     p(class="ploegdetails")= overzicht.land1red
+    div#detailsploeg2
+     p(class="titels") fouls
+     p(class="ploegdetails")= overzicht.land2fouls
+     p(class="titels") shots
+     p(class="ploegdetails")= overzicht.land2shots
+     p(class="titels") shotsongoal
+     p(class="ploegdetails")= overzicht.land2shotsongoal
+     p(class="titels") pass %
+     p(class="ploegdetails")= overzicht.land2pass
+     p(class="titels") posession %
+     p(class="ploegdetails")= overzicht.land2posession
+     p(class="titels") yellow cards
+     p(class="ploegdetails")= overzicht.land2yellow
+     p(class="titels") red cards
+     p(class="ploegdetails")= overzicht.land2red
 
-    div(id='testfaye')
+
+    
+  -else
+   p(class="error") Seomthing appears to be broken, sorry for the inconvienience
 
   script.
     var client = new Faye.Client('/faye',{

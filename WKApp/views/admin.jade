@@ -2,7 +2,7 @@ extends layout
 
 block content
    form(name='matchdetails',id="matchdetails", action='/admin', method='post')
-      select#ploeg1(name='ploeg1')
+      select#ploeg1(name='ploeg1', sort='asc')
         option(value=overzicht.land1)= overzicht.land1
         option(value='Brazil') Brazil
         option(value='Mexico') Mexico
@@ -123,10 +123,26 @@ block content
       $('#matchdetails').submit(function() {
        client.publish('/channel', {
         ploeg1: $('#ploeg1').val(),
-        ploeg2: $('#ploeg2').val()
+        scoreploeg1: $('#scoreploeg1').val(),
+        foulsploeg1: $('#foulsploeg1').val(),
+        shotsploeg1: $('#shotsploeg1').val(),
+        shotsongoalploeg1: $('#shotsongoalploeg1').val(),
+        passpercentploeg1: $('#passpercentploeg1').val(),
+        posessionploeg1: $('#posessionploeg1').val(),
+        yellowcardploeg1: $('#yellowcardploeg1').val(),
+        redcardploeg1: $('#redcardploeg1').val(),
+        ploeg2: $('#ploeg2').val(),
+        scoreploeg2: $('#scoreploeg2').val(),
+        foulsploeg2: $('#foulsploeg2').val(),
+        shotsploeg2: $('#shotsploeg2').val(),
+        shotsongoalploeg2: $('#shotsongoalploeg2').val(),
+        passpercentploeg2: $('#passpercentploeg2').val(),
+        posessionploeg2: $('#posessionploeg2').val(),
+        yellowcardploeg2: $('#yellowcardploeg2').val(),
+        redcardploeg2: $('#redcardploeg2').val()
        });
        console.log('test');
-       return false;
+       
       });
 
 
