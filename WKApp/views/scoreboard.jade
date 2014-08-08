@@ -3,45 +3,45 @@ extends layout
 block content
   -if(overzicht)
     div#scoreboardploeg1
-     img(src="images/" +overzicht.land1 + ".png")
-     p= overzicht.land1
+     img(id="vlagploeg1" src="images/" +overzicht.land1 + ".png")
+     p#ploeg1= overzicht.land1
     div#scoreboard
      p(class="points")= overzicht.land1score
      p -
      p(class="points")= overzicht.land2score
     div#scoreboardploeg2 
-     img(src="images/" + overzicht.land2 + ".png")
-     p= overzicht.land2
+     img( id="vlagploeg2" src="images/" + overzicht.land2 + ".png")
+     p#ploeg2= overzicht.land2
     div#detailsploeg1
      p(class="titels") fouls
-     p(class="ploegdetails")= overzicht.land1fouls
+     p(id="foulsploeg1" class="ploegdetails")= overzicht.land1fouls
      p(class="titels") shots
-     p(class="ploegdetails")= overzicht.land1shots
+     p(id="shotsploeg1" class="ploegdetails")= overzicht.land1shots
      p(class="titels") shotsongoal
-     p(class="ploegdetails")= overzicht.land1shotsongoal
+     p(id="shotsongoalploeg1" class="ploegdetails")= overzicht.land1shotsongoal
      p(class="titels") pass %
-     p(class="ploegdetails")= overzicht.land1pass
+     p(id="passpercentploeg1" class="ploegdetails")= overzicht.land1pass
      p(class="titels") posession %
-     p(class="ploegdetails")= overzicht.land1posession
+     p(id="posessionploeg1" class="ploegdetails")= overzicht.land1posession
      p(class="titels") yellow cards
-     p(class="ploegdetails")= overzicht.land1yellow
+     p(id="yellowcardploeg1" class="ploegdetails")= overzicht.land1yellow
      p(class="titels") red cards
-     p(class="ploegdetails")= overzicht.land1red
+     p(id="redcardploeg1" class="ploegdetails")= overzicht.land1red
     div#detailsploeg2
      p(class="titels") fouls
-     p(class="ploegdetails")= overzicht.land2fouls
+     p(id="foulsploeg2" class="ploegdetails")= overzicht.land2fouls
      p(class="titels") shots
-     p(class="ploegdetails")= overzicht.land2shots
+     p(id="shotsploeg2" class="ploegdetails")= overzicht.land2shots
      p(class="titels") shotsongoal
-     p(class="ploegdetails")= overzicht.land2shotsongoal
+     p(id="shotsongoalploeg2" class="ploegdetails")= overzicht.land2shotsongoal
      p(class="titels") pass %
-     p(class="ploegdetails")= overzicht.land2pass
+     p(id="passpercentploeg2" class="ploegdetails")= overzicht.land2pass
      p(class="titels") posession %
-     p(class="ploegdetails")= overzicht.land2posession
+     p(id="posessionploeg2" class="ploegdetails")= overzicht.land2posession
      p(class="titels") yellow cards
-     p(class="ploegdetails")= overzicht.land2yellow
+     p(id="yellowcardploeg2" class="ploegdetails")= overzicht.land2yellow
      p(class="titels") red cards
-     p(class="ploegdetails")= overzicht.land2red
+     p(id="redcardploeg2" class="ploegdetails")= overzicht.land2red
 
 
     
@@ -53,9 +53,23 @@ block content
      timeout: 20
     });
 
-    client.subscribe('/channel', function(message) {
-     $('#test').html(message.ploeg1 + ' vs ' + message.ploeg2 + 'it works!!!!!!')
-     console.log(message)
+    client.subscribe('/gegevens', function(message) {
+     $('#ploeg1').html(message.ploeg1)
+     $('#scoreploeg1').html(message.scoreploeg1)
+     $('#shotsploeg1').html(message.shotsploeg1)
+     $('#shotsongoalploeg1').html(message.shotsongoalploeg1)
+     $('#passpercentploeg1').html(message.passpercentploeg1)
+     $('#posessionploeg1').html(message.posessionploeg1)
+     $('#yellowcardploeg1').html(message.yellowcardploeg1)
+     $('#redcardploeg1').html(message.redcardploeg1)
+     $('#ploeg2').html(message.ploeg2)
+     $('#scoreploeg2').html(message.scoreploeg2)
+     $('#shotsploeg2').html(message.shotsploeg2)
+     $('#shotsongoalploeg2').html(message.shotsongoalploeg2)
+     $('#passpercentploeg2').html(message.passpercentploeg2)
+     $('#posessionploeg2').html(message.posessionploeg2)
+     $('#yellowcardploeg2').html(message.yellowcardploeg2)
+     $('#redcardploeg2').html(message.redcardploeg2)
     });
     console.log('checking');
 

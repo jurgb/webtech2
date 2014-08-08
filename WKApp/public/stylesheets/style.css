@@ -79,14 +79,16 @@ form input {
   float: right; }
 
 input.detailsploeg1,
-input.detailsploeg2 {
+input.detailsploeg2,
+.ploegdetails {
   width: 50px;
   margin-left: 25px;
   margin-right: 25px;
   display: inline-block; }
 
 label.detailsploeg1,
-label.detailsploeg2 {
+label.detailsploeg2,
+.titels {
   width: 200px;
   display: inline-block; }
 
