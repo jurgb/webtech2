@@ -82,7 +82,17 @@ exports.savechange = function(db) {
                 "land2posession" : land2posession,
                 "land2yellow" : land2yellow,
                 "land2red" : land2red
-                });
+                }, function (err, doc) {
+                if (err) {
+                    // Failed -> error boodschap geven
+                    res.send("There was a problem adding the information to the database.");
+                }
+                else {
+                    res.render('index', { 
+                        succes: 'Data has been succesfully added to the database, click below to continiue'
+                    });
+                }
+            });
     }
 }
 exports.update = function(db) {

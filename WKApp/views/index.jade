@@ -1,6 +1,10 @@
 extends layout
 
 block content
-
-  h1= title
-  p Welcome to #{title}
+  -if(succes)
+   div(class="succes")
+    p= succes
+    a(href="/admin")= "Ga verder"
+  -else
+   h1= title
+   p Welcome to #{title}

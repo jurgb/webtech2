@@ -102,3 +102,57 @@ label.detailsploeg2,
   margin-right: auto;
   text-align: center;
   margin-bottom: 150px; }
+
+#scoreboardploeg1,
+#scoreboardploeg2,
+#scoreboard {
+  width: 33%;
+  display: inline-block;
+  text-align: center; }
+  #scoreboardploeg1 img,
+  #scoreboardploeg2 img,
+  #scoreboard img {
+    width: 150px; }
+
+#scoreboardploeg1,
+#scoreboardploeg2 {
+  margin-top: 20px; }
+
+#scoreboard {
+  margin-top: -15px; }
+  #scoreboard p {
+    width: 33%;
+    display: inline-block;
+    height: 150px; }
+  #scoreboard p.points {
+    font-size: 50px; }
+
+.error {
+  background-color: #ff1c4d;
+  display: block;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 15px;
+  border: 2px solid #bf1338; }
+
+.succes {
+  background-color: #a9eed1;
+  display: block;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 15px;
+  border: 2px solid #6fab92; }

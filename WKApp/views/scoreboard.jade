@@ -3,15 +3,15 @@ extends layout
 block content
   -if(overzicht)
     div#scoreboardploeg1
-     img(id="vlagploeg1" src="images/" +overzicht.land1 + ".png")
-     p#ploeg1= overzicht.land1
+     img(id="vlagploeg1" src="images/flags/" +overzicht.land1 + ".png")
+     p#naamploeg1= overzicht.land1
     div#scoreboard
      p(class="points")= overzicht.land1score
      p -
      p(class="points")= overzicht.land2score
     div#scoreboardploeg2 
-     img( id="vlagploeg2" src="images/" + overzicht.land2 + ".png")
-     p#ploeg2= overzicht.land2
+     img( id="vlagploeg2" src="images/flags/" + overzicht.land2 + ".png")
+     p#naamploeg2= overzicht.land2
     div#detailsploeg1
      p(class="titels") fouls
      p(id="foulsploeg1" class="ploegdetails")= overzicht.land1fouls
@@ -20,9 +20,9 @@ block content
      p(class="titels") shotsongoal
      p(id="shotsongoalploeg1" class="ploegdetails")= overzicht.land1shotsongoal
      p(class="titels") pass %
-     p(id="passpercentploeg1" class="ploegdetails")= overzicht.land1pass
+     p(id="passpercentploeg1" class="ploegdetails")= overzicht.land1pass + " %"
      p(class="titels") posession %
-     p(id="posessionploeg1" class="ploegdetails")= overzicht.land1posession
+     p(id="posessionploeg1" class="ploegdetails")= overzicht.land1posession + " %"
      p(class="titels") yellow cards
      p(id="yellowcardploeg1" class="ploegdetails")= overzicht.land1yellow
      p(class="titels") red cards
@@ -35,18 +35,19 @@ block content
      p(class="titels") shotsongoal
      p(id="shotsongoalploeg2" class="ploegdetails")= overzicht.land2shotsongoal
      p(class="titels") pass %
-     p(id="passpercentploeg2" class="ploegdetails")= overzicht.land2pass
+     p(id="passpercentploeg2" class="ploegdetails")= overzicht.land2pass + " %"
      p(class="titels") posession %
-     p(id="posessionploeg2" class="ploegdetails")= overzicht.land2posession
+     p(id="posessionploeg2" class="ploegdetails")= overzicht.land2posession + " %"
      p(class="titels") yellow cards
      p(id="yellowcardploeg2" class="ploegdetails")= overzicht.land2yellow
      p(class="titels") red cards
      p(id="redcardploeg2" class="ploegdetails")= overzicht.land2red
-
-
-    
+    div#updates
+     p effe teste
+     p waar dit komt
   -else
    p(class="error") Seomthing appears to be broken, sorry for the inconvienience
+
 
   script.
     var client = new Faye.Client('/faye',{
@@ -54,7 +55,8 @@ block content
     });
 
     client.subscribe('/gegevens', function(message) {
-     $('#ploeg1').html(message.ploeg1)
+     $('#naamploeg1').html(message.ploeg1)
+     $('#vlagploeg1').attr("src","images/flags/" + message.ploeg1 + ".png")
      $('#scoreploeg1').html(message.scoreploeg1)
      $('#shotsploeg1').html(message.shotsploeg1)
      $('#shotsongoalploeg1').html(message.shotsongoalploeg1)
@@ -62,7 +64,8 @@ block content
      $('#posessionploeg1').html(message.posessionploeg1)
      $('#yellowcardploeg1').html(message.yellowcardploeg1)
      $('#redcardploeg1').html(message.redcardploeg1)
-     $('#ploeg2').html(message.ploeg2)
+     $('#naamploeg2').html(message.ploeg2)
+     $('#vlagploeg2').attr("src","images/flags/" + message.ploeg2 + ".png")
      $('#scoreploeg2').html(message.scoreploeg2)
      $('#shotsploeg2').html(message.shotsploeg2)
      $('#shotsongoalploeg2').html(message.shotsongoalploeg2)

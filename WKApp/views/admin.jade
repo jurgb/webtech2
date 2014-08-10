@@ -4,75 +4,43 @@ block content
    form(name='matchdetails',id="matchdetails", action='/admin', method='post')
       select#ploeg1(name='ploeg1', sort='asc')
         option(value=overzicht.land1)= overzicht.land1
+        option(value='Argentina') Argentina
+        option(value='Belgium') Belgium
         option(value='Brazil') Brazil
-        option(value='Mexico') Mexico
-        option(value='Croatia') Croatia
         option(value='Cameroon') Cameroon
-        option(value='Netherlands') Netherlands
-        option(value='Chile') Chile
-        option(value='Spain') Spain
-        option(value='Australia') Australia
         option(value='Colombia') Colombia
-        option(value='Greece') Greece
-        option(value='Cotedivoire') Côte d'ivoire
-        option(value='Japan') Japan
-        option(value='Costarica') Costa rica
-        option(value='Uruguay') Uruguay
-        option(value='Italy') Italy
+        option(value='Cotedivoire') Cote d'ivoire
         option(value='England') England
         option(value='France') France
-        option(value='Switzerland') Switzerland
-        option(value='Ecuador') Ecuador
-        option(value='Honduras') Honduras
-        option(value='Argentina') Nigeria
-        option(value='Nigeria') Nigeria
-        option(value='Bosniaandherzegovina') Bosnia and herzegovina
-        option(value='Iran') Iran
         option(value='Germany') Germany
-        option(value='Usa') Usa
-        option(value='Portugal') Portugal
-        option(value='Ghana') Ghana
-        option(value='Belgium') Belgium
-        option(value='Algeria') Algeria
+        option(value='Greece') Greece
+        option(value='Italy') Italy
+        option(value='Japan') Japan
+        option(value='Netherlands') Netherlands
+        option(value='Nigeria') Nigeria
         option(value='Russia') Russia
-        option(value='Korearepublic') Korea republic
+        option(value='Usa') United States
       input#scoreploeg1(type='text' name='scoreploeg1' value= overzicht.land1score)
       label#dash -
       input#scoreploeg2(type='text' name='scoreploeg2' value= overzicht.land2score)
       select#ploeg2(name="ploeg2")
         option(value=overzicht.land2)= overzicht.land2
+        option(value='Argentina') Argentina
+        option(value='Belgium') Belgium
         option(value='Brazil') Brazil
-        option(value='Mexico') Mexico
-        option(value='Croatia') Croatia
         option(value='Cameroon') Cameroon
-        option(value='Netherlands') Netherlands
-        option(value='Chile') Chile
-        option(value='Spain') Spain
-        option(value='Australia') Australia
         option(value='Colombia') Colombia
-        option(value='Greece') Greece
-        option(value='Cotedivoire') Côte d'ivoire
-        option(value='Japan') Japan
-        option(value='Costarica') Costa rica
-        option(value='Uruguay') Uruguay
-        option(value='Italy') Italy
+        option(value='Cotedivoire') Cote d'ivoire
         option(value='England') England
         option(value='France') France
-        option(value='Switzerland') Switzerland
-        option(value='Ecuador') Ecuador
-        option(value='Honduras') Honduras
-        option(value='Argentina') Nigeria
-        option(value='Nigeria') Nigeria
-        option(value='Bosniaandherzegovina') Bosnia and herzegovina
-        option(value='Iran') Iran
         option(value='Germany') Germany
-        option(value='Usa') Usa
-        option(value='Portugal') Portugal
-        option(value='Ghana') Ghana
-        option(value='Belgium') Belgium
-        option(value='Algeria') Algeria
+        option(value='Greece') Greece
+        option(value='Italy') Italy
+        option(value='Japan') Japan
+        option(value='Netherlands') Netherlands
+        option(value='Nigeria') Nigeria
         option(value='Russia') Russia
-        option(value='Korearepublic') Korea republic
+        option(value='Usa') United States
       fieldset#detailsploeg1
         label(for='foulsploeg1' class='detailsploeg1') Fouls
         input#foulsploeg1(type='text' class='detailsploeg1' name='foulsploeg1' value= overzicht.land1fouls)
@@ -114,6 +82,8 @@ block content
       input#speler(type='text', placeholder='Speler' name='speler')
       input#minuut(type='text', placeholder='Minuut' name='minuut')
       input(type='submit', value='Post Update')
+    a#reset(href="#") Reset match details
+ 
 
     script.
       var client = new Faye.Client('/faye',{
@@ -141,7 +111,9 @@ block content
         yellowcardploeg2: $('#yellowcardploeg2').val(),
         redcardploeg2: $('#redcardploeg2').val()
        });
-       console.log('test');
+      $('#reset').click(function() {
+        return false;
+       });
        
       });
 

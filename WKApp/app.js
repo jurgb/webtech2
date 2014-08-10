@@ -53,10 +53,6 @@ app.get('/scoreboard', routes.scoreboard(db));
 app.post('/newuser', routes.adduser(db));
 app.post('/admin', routes.savechange(db));
 app.post('/update', routes.update(db));
-//app.post('/scoreboard', routes.clickdatshit(db));
 
-/*http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
-});*/
 server.listen(process.env.PORT ||3000);
 console.log("App launched on port 3000");
