@@ -1,8 +1,16 @@
 /*variabelen*/
-$bgGreen : #A9EED1;
-$fgGreen : #6FAB92;
-$errorRed : #FF1C4D;
-$errorRedBorder : #BF1338;
+/*colors*/
+$succesgreen : rgba(164,219,110,0.55);
+$errorRed : rgba(250,56,56,0.65);
+$wklightblue : #DBFFFC;
+$wkdarkblue : #106282;
+$backgroundblue : rgba(219, 255, 252, 0.4);
+$backgroundgrey : rgba(77, 77, 77, 0.5);
+$headercolor : rgba(217,217,217, 0.5);
+$fgwhite : rgba(240,240,240, 0.4);
+$bgwhite : rgba(240,240,240, 0.7);
+
+/*daults*/
 
 /*
 	Command to watch Sass -> make sure you are in the scss folder before executing the command
@@ -10,38 +18,3 @@ $errorRedBorder : #BF1338;
 	sass --watch style.scss:../style.css
 
 */
-
-#wrapper {
-	width: 980px;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: $fgGreen;
-	margin-top: 5px;
-	padding: 50px;
-	padding-left:25px;
-	padding-right: 25px;
-	border-radius: 15px;
-	border: 2px solid #428569;
-}
-body{
-	background-color: $bgGreen;
-	color: #F0F0F0;
-}
-
-nav a:link,
-nav a:visited,
-nav a:hover,
-nav a:active
-{
-	width: 25%;
-	display:inline-block;
-	background-color: $bgGreen;
-	border: 2px solid #428569;
-	text-align:center;
-	color: #000;
-	text-decoration:none;
-}
-
-nav a:hover{
-	color: #696969;
-}

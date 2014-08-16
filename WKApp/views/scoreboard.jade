@@ -2,49 +2,60 @@ extends layout
 
 block content
   -if(overzicht)
-    div#scoreboardploeg1
-     img(id="vlagploeg1" src="images/flags/" +overzicht.land1 + ".png")
-     p#naamploeg1= overzicht.land1
-    div#scoreboard
-     p(class="points")= overzicht.land1score
-     p -
-     p(class="points")= overzicht.land2score
-    div#scoreboardploeg2 
-     img( id="vlagploeg2" src="images/flags/" + overzicht.land2 + ".png")
-     p#naamploeg2= overzicht.land2
-    div#detailsploeg1
-     p(class="titels") fouls
-     p(id="foulsploeg1" class="ploegdetails")= overzicht.land1fouls
-     p(class="titels") shots
-     p(id="shotsploeg1" class="ploegdetails")= overzicht.land1shots
-     p(class="titels") shotsongoal
-     p(id="shotsongoalploeg1" class="ploegdetails")= overzicht.land1shotsongoal
-     p(class="titels") pass %
-     p(id="passpercentploeg1" class="ploegdetails")= overzicht.land1pass + " %"
-     p(class="titels") posession %
-     p(id="posessionploeg1" class="ploegdetails")= overzicht.land1posession + " %"
-     p(class="titels") yellow cards
-     p(id="yellowcardploeg1" class="ploegdetails")= overzicht.land1yellow
-     p(class="titels") red cards
-     p(id="redcardploeg1" class="ploegdetails")= overzicht.land1red
-    div#detailsploeg2
-     p(class="titels") fouls
-     p(id="foulsploeg2" class="ploegdetails")= overzicht.land2fouls
-     p(class="titels") shots
-     p(id="shotsploeg2" class="ploegdetails")= overzicht.land2shots
-     p(class="titels") shotsongoal
-     p(id="shotsongoalploeg2" class="ploegdetails")= overzicht.land2shotsongoal
-     p(class="titels") pass %
-     p(id="passpercentploeg2" class="ploegdetails")= overzicht.land2pass + " %"
-     p(class="titels") posession %
-     p(id="posessionploeg2" class="ploegdetails")= overzicht.land2posession + " %"
-     p(class="titels") yellow cards
-     p(id="yellowcardploeg2" class="ploegdetails")= overzicht.land2yellow
-     p(class="titels") red cards
-     p(id="redcardploeg2" class="ploegdetails")= overzicht.land2red
-    div#updates
-     p effe teste
-     p waar dit komt
+    div#scoreoverzicht
+     h1 Scoreboard
+     div#scoreboardploeg1
+      img(id="vlagploeg1" src="images/flags/" +overzicht.land1 + ".png")
+      p#naamploeg1= overzicht.land1
+     div#scoreboard
+      p(class="points")= overzicht.land1score
+      p -
+      p(class="points")= overzicht.land2score
+     div#scoreboardploeg2 
+      img( id="vlagploeg2" src="images/flags/" + overzicht.land2 + ".png")
+      p#naamploeg2= overzicht.land2
+    div#details
+     div#detailsploeg1
+      h2= 'Details ' + overzicht.land1 
+      p(class="titels") fouls
+      p(id="foulsploeg1" class="ploegdetails")= overzicht.land1fouls
+      p(class="titels") shots
+      p(id="shotsploeg1" class="ploegdetails")= overzicht.land1shots
+      p(class="titels") shotsongoal
+      p(id="shotsongoalploeg1" class="ploegdetails")= overzicht.land1shotsongoal
+      p(class="titels") pass %
+      p(id="passpercentploeg1" class="ploegdetails")= overzicht.land1pass + " %"
+      p(class="titels") posession %
+      p(id="posessionploeg1" class="ploegdetails")= overzicht.land1posession + " %"
+      p(class="titels") yellow cards
+      p(id="yellowcardploeg1" class="ploegdetails")= overzicht.land1yellow
+      p(class="titels") red cards
+      p(id="redcardploeg1" class="ploegdetails")= overzicht.land1red
+     div#detailsploeg2
+      h2= 'Details ' + overzicht.land2
+      p(class="titels") fouls
+      p(id="foulsploeg2" class="ploegdetails")= overzicht.land2fouls
+      p(class="titels") shots
+      p(id="shotsploeg2" class="ploegdetails")= overzicht.land2shots
+      p(class="titels") shotsongoal
+      p(id="shotsongoalploeg2" class="ploegdetails")= overzicht.land2shotsongoal
+      p(class="titels") pass %
+      p(id="passpercentploeg2" class="ploegdetails")= overzicht.land2pass + " %"
+      p(class="titels") posession %
+      p(id="posessionploeg2" class="ploegdetails")= overzicht.land2posession + " %"
+      p(class="titels") yellow cards
+      p(id="yellowcardploeg2" class="ploegdetails")= overzicht.land2yellow
+      p(class="titels") red cards
+      p(id="redcardploeg2" class="ploegdetails")= overzicht.land2red
+    div#updatesdiv
+     h1 Recent updates
+     ul#updateslist
+      each update, i in updates
+       li
+        img(src="images/icons/" + update.type + ".png")
+        p= update.speler
+        p= update.min + "''"
+     
   -else
    p(class="error") Seomthing appears to be broken, sorry for the inconvienience
 
@@ -74,6 +85,6 @@ block content
      $('#yellowcardploeg2').html(message.yellowcardploeg2)
      $('#redcardploeg2').html(message.redcardploeg2)
     });
-    console.log('checking');
-
-  
+    client.subscribe('/updates', function(matchupdates) {
+     $('#updateslist').append("<li><img src='/images/icons/" + matchupdates.type + ".png'/><p>" + matchupdates.speler + " </p> <p> " + matchupdates.min + "'' </p></li>")
+    });

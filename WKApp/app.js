@@ -43,16 +43,13 @@ if ('development' == app.get('env')) {
 
 //GET
 app.get('/', routes.index);
-app.get('/users', user.list);
-app.get('/newuser', routes.newuser);
 app.get('/admin', routes.admin(db));
 app.get('/scoreboard', routes.scoreboard(db));
-//app.get('/userlist', routes.userlist(db));
 
 //POST
-app.post('/newuser', routes.adduser(db));
 app.post('/admin', routes.savechange(db));
 app.post('/update', routes.update(db));
+app.post('/leegmaken', routes.leegmaken(db));
 
 server.listen(process.env.PORT ||3000);
 console.log("App launched on port 3000");

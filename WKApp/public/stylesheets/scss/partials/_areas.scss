@@ -1,0 +1,99 @@
+/* Messages layout */
+
+.error{
+	background-color: $errorRed;
+	display: block;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 300px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 20px;
+	text-align: center;
+	border-radius: 15px;
+}
+.succes{
+	background-color: $succesgreen;
+	display: block;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 300px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 20px;
+	text-align: center;
+	border-radius: 15px;
+	a:link,
+	a:visited,
+	a:hover,
+	a:active{
+		width: 200px;
+		margin-left: 10px;
+		margin-right: 10px;
+		display: inline-block;
+		background-color: $backgroundblue;
+		padding: 10px;
+		text-decoration: none;
+		color: $wkdarkblue;
+		margin-bottom: 10px;
+		margin-top: 10px;
+	}
+	a:hover{
+		background-color: $wklightblue;
+		border: 1px solid $wkdarkblue;
+		padding: 9px;
+	}
+}
+
+/* partials */
+
+
+#wrapper 
+{
+	width: 980px;
+	padding: 25px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 25px;
+}
+body
+{
+	background-image: url('../images/background.png');
+}
+
+#header
+{
+	width: 980px;
+	padding: 25px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: $headercolor;
+	text-align: center;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+nav
+{
+	a:link,
+	a:visited,
+	a:hover,
+	a:active{
+		width: 200px;
+		margin-left: 10px;
+		margin-right: 10px;
+		display: inline-block;
+		background-color: $backgroundblue;
+		padding: 10px;
+		text-decoration: none;
+		color: $wkdarkblue;
+	}
+	a:hover{
+		background-color: $wklightblue;
+		border: 1px solid $wkdarkblue;
+		padding: 9px;
+	}
+}

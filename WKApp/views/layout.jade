@@ -9,12 +9,13 @@ html
     script(src='/faye/client.js')
 
   body
-   div(id='wrapper')
+   
+   div#header
     div#logo
      a(href="/")
       img(src='images/imd.png', alt="logo")
     nav
-     a(href="/newuser")= "Register"
      a(href="/scoreboard")= "Scoreboard"
      a(href="/admin")= "Admin-pagina"
+   div(id='wrapper')
     block content

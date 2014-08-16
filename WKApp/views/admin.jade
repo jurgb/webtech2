@@ -2,45 +2,46 @@ extends layout
 
 block content
    form(name='matchdetails',id="matchdetails", action='/admin', method='post')
-      select#ploeg1(name='ploeg1', sort='asc')
-        option(value=overzicht.land1)= overzicht.land1
-        option(value='Argentina') Argentina
-        option(value='Belgium') Belgium
-        option(value='Brazil') Brazil
-        option(value='Cameroon') Cameroon
-        option(value='Colombia') Colombia
-        option(value='Cotedivoire') Cote d'ivoire
-        option(value='England') England
-        option(value='France') France
-        option(value='Germany') Germany
-        option(value='Greece') Greece
-        option(value='Italy') Italy
-        option(value='Japan') Japan
-        option(value='Netherlands') Netherlands
-        option(value='Nigeria') Nigeria
-        option(value='Russia') Russia
-        option(value='Usa') United States
-      input#scoreploeg1(type='text' name='scoreploeg1' value= overzicht.land1score)
-      label#dash -
-      input#scoreploeg2(type='text' name='scoreploeg2' value= overzicht.land2score)
-      select#ploeg2(name="ploeg2")
-        option(value=overzicht.land2)= overzicht.land2
-        option(value='Argentina') Argentina
-        option(value='Belgium') Belgium
-        option(value='Brazil') Brazil
-        option(value='Cameroon') Cameroon
-        option(value='Colombia') Colombia
-        option(value='Cotedivoire') Cote d'ivoire
-        option(value='England') England
-        option(value='France') France
-        option(value='Germany') Germany
-        option(value='Greece') Greece
-        option(value='Italy') Italy
-        option(value='Japan') Japan
-        option(value='Netherlands') Netherlands
-        option(value='Nigeria') Nigeria
-        option(value='Russia') Russia
-        option(value='Usa') United States
+      fieldset#adminscoreboard
+       select#ploeg1(name='ploeg1')
+         option(value=overzicht.land1)= overzicht.land1
+         option(value='Argentina') Argentina
+         option(value='Belgium') Belgium
+         option(value='Brazil') Brazil
+         option(value='Cameroon') Cameroon
+         option(value='Colombia') Colombia
+         option(value='Cotedivoire') Cote d'ivoire
+         option(value='England') England
+         option(value='France') France
+         option(value='Germany') Germany
+         option(value='Greece') Greece
+         option(value='Italy') Italy
+         option(value='Japan') Japan
+         option(value='Netherlands') Netherlands
+         option(value='Nigeria') Nigeria
+         option(value='Russia') Russia
+         option(value='Usa') United States
+       input#scoreploeg1(type='text' name='scoreploeg1' value= overzicht.land1score)
+       label#dash -
+       input#scoreploeg2(type='text' name='scoreploeg2' value= overzicht.land2score)
+       select#ploeg2(name="ploeg2")
+         option(value=overzicht.land2)= overzicht.land2
+         option(value='Argentina') Argentina
+         option(value='Belgium') Belgium
+         option(value='Brazil') Brazil
+         option(value='Cameroon') Cameroon
+         option(value='Colombia') Colombia
+         option(value='Cotedivoire') Cote d'ivoire
+         option(value='England') England
+         option(value='France') France
+         option(value='Germany') Germany
+         option(value='Greece') Greece
+         option(value='Italy') Italy
+         option(value='Japan') Japan
+         option(value='Netherlands') Netherlands
+         option(value='Nigeria') Nigeria
+         option(value='Russia') Russia
+         option(value='Usa') United States
       fieldset#detailsploeg1
         label(for='foulsploeg1' class='detailsploeg1') Fouls
         input#foulsploeg1(type='text' class='detailsploeg1' name='foulsploeg1' value= overzicht.land1fouls)
@@ -71,9 +72,11 @@ block content
         input#yellowcardploeg2(type='text' class='detailsploeg2' name='yellowcardploeg2' value= overzicht.land2yellow)
         label(for='redcardploeg2' class='detailsploeg2') Red cards
         input#redcardploeg2(type='text' class='detailsploeg2' name='redcardploeg2' value= overzicht.land2red)
-        input#submitdetails(type='submit', value='Save changes')
+      input#submitdetails(class="submitbutton" type='submit', value='Save changes')
+    form#leegmaken(name="leegmaken" action='/leegmaken', method='post')
+     input#emptybutton(class="submitbutton" type='submit', value='Reset match records')
     form#updates(name="updates" action='/update', method='post')
-      select(name='type')
+      select#type(name='type')
         option(value='goal' class='updateoption') Goal
         option(value='foul' class='updateoption') Foul
         option(value='yellow' class='updateoption') Yellow card
@@ -81,8 +84,8 @@ block content
         option(value='swap' class='updateoption') Swap
       input#speler(type='text', placeholder='Speler' name='speler')
       input#minuut(type='text', placeholder='Minuut' name='minuut')
-      input(type='submit', value='Post Update')
-    a#reset(href="#") Reset match details
+      input#updatebutton(class="submitbutton" type='submit', value='Post Update')
+    
  
 
     script.
@@ -111,10 +114,36 @@ block content
         yellowcardploeg2: $('#yellowcardploeg2').val(),
         redcardploeg2: $('#redcardploeg2').val()
        });
-      $('#reset').click(function() {
-        return false;
-       });
-       
       });
+      $('#leegmaken').submit(function() {
+       client.publish('/gegevens', {
+        ploeg1: $('#ploeg1').val(),
+        scoreploeg1: $('#scoreploeg1').val(),
+        foulsploeg1: $('#foulsploeg1').val(),
+        shotsploeg1: $('#shotsploeg1').val(),
+        shotsongoalploeg1: $('#shotsongoalploeg1').val(),
+        passpercentploeg1: $('#passpercentploeg1').val(),
+        posessionploeg1: $('#posessionploeg1').val(),
+        yellowcardploeg1: $('#yellowcardploeg1').val(),
+        redcardploeg1: $('#redcardploeg1').val(),
+        ploeg2: $('#ploeg2').val(),
+        scoreploeg2: $('#scoreploeg2').val(),
+        foulsploeg2: $('#foulsploeg2').val(),
+        shotsploeg2: $('#shotsploeg2').val(),
+        shotsongoalploeg2: $('#shotsongoalploeg2').val(),
+        passpercentploeg2: $('#passpercentploeg2').val(),
+        posessionploeg2: $('#posessionploeg2').val(),
+        yellowcardploeg2: $('#yellowcardploeg2').val(),
+        redcardploeg2: $('#redcardploeg2').val()
+       });
+      });
+      $('#updates').submit(function() {
+       console.log('test')
+       client.publish('/updates', {
+        type: $('#type').val(),
+        speler: $('#speler').val(),
+        min: $('#minuut').val()
+       });
+       });
 
 

@@ -1,0 +1,50 @@
+#welkom
+{
+	background-color: $bgwhite;
+	border-radius: 20px;
+	text-align: center;
+	width: 80%;
+	color: $wkdarkblue;
+	margin-left: auto;
+	margin-right: auto;
+	h1
+	{
+		background-color: $backgroundgrey;
+		display:block;
+		text-align: center;
+		border-top-right-radius: 20px;
+		border-top-left-radius: 20px;
+		margin-bottom: 15px;
+		padding: 20px;
+		color: $wklightblue;
+		font-size: 20px;
+	}
+	img
+	{
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		display:block;
+		margin-top: 25px;
+		margin-bottom: 25px;
+	}
+	a:link,
+	a:visited,
+	a:hover,
+	a:active{
+		width: 200px;
+		margin-left: 10px;
+		margin-right: 10px;
+		display: inline-block;
+		background-color: $backgroundblue;
+		padding: 10px;
+		text-decoration: none;
+		color: $wkdarkblue;
+		margin-bottom: 20px;
+	}
+	a:hover{
+		background-color: $wklightblue;
+		border: 1px solid $wkdarkblue;
+		padding: 9px;
+	}
+}

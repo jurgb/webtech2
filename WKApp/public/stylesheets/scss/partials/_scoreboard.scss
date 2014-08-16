@@ -1,0 +1,125 @@
+#scoreoverzicht{
+	background-color: $bgwhite;
+	border-radius: 20px;
+	text-align: center;
+	width: 80%;
+	color: $wkdarkblue;
+	margin-left: auto;
+	margin-right: auto;
+	#scoreboardploeg1,
+	#scoreboard,
+	#scoreboardploeg2{
+		width: 28%;
+		display: inline-block;
+		padding: 20px;
+		img{
+			width: 150px;
+			border-radius: 10%;
+		}
+	}
+	#scoreboard{
+		p{
+			width: 33%;
+			display: inline-block;
+			font-size: 40px;
+
+		}
+		.points{
+			font-size: 60px;
+		}
+	}
+	#naamploeg1,
+	#naamploeg2{
+		font-size: 25px;
+		margin-top: 10px;
+	}
+	h1
+	{
+		background-color: $backgroundgrey;
+		display:block;
+		text-align: center;
+		border-top-right-radius: 20px;
+		border-top-left-radius: 20px;
+		margin-bottom: 15px;
+		padding: 20px;
+		color: $wklightblue;
+		font-size: 20px;
+	}
+}
+#details{	
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	
+
+	#detailsploeg1,
+	#detailsploeg2{
+		width: 40%;
+		border-radius: 20px;
+		display:inline-block;
+		background-color: $bgwhite;
+		margin-top: 20px;
+		padding-bottom: 20px;
+	}
+	#detailsploeg1{
+		margin-right: 15%;
+		margin-left: 2.5%;
+	}
+	h2{
+		background-color: $backgroundgrey;
+		display:block;
+		text-align: center;
+		border-top-right-radius: 20px;
+		border-top-left-radius: 20px;
+		margin-bottom: 15px;
+		padding: 20px;
+		color: $wklightblue;
+		font-size: 18px;
+	}
+	.titels,
+	.ploegdetails{
+		width: 40%;
+		display:inline-block;
+		text-align: center;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		color: $wkdarkblue;
+	}
+	.titels{
+		width: 60%;
+		text-align: left;
+		text-indent: 50px;
+
+	}
+}
+#updatesdiv{
+	background-color: $bgwhite;
+	border-radius: 20px;
+	text-align: center;
+	width: 40%;
+	color: $wkdarkblue;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	h1
+	{
+		background-color: $backgroundgrey;
+		display:block;
+		text-align: center;
+		border-top-right-radius: 20px;
+		border-top-left-radius: 20px;
+		margin-bottom: 15px;
+		padding: 20px;
+		color: $wklightblue;
+		font-size: 20px;
+	}
+	li
+	{
+		width: 20%;
+		display: inline-block;
+		padding: 5px;
+		img{
+			width: 30px;
+		}
+	}
+}
