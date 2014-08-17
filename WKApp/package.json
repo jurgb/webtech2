@@ -15,5 +15,10 @@
     "passport-local": "~0.1.6",
     "connect-flash": "~0.1.1",
     "bcrypt-nodejs": "latest"
+  },
+  "devDependencies": {
+    "gulp-minify-css": "^0.3.7",
+    "gulp-concat": "*",
+    "gulp" : "*"
   }
 }
