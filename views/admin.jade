@@ -134,11 +134,11 @@ block content
         passpercentploeg2: $('#passpercentploeg2').val(),
         posessionploeg2: $('#posessionploeg2').val(),
         yellowcardploeg2: $('#yellowcardploeg2').val(),
-        redcardploeg2: $('#redcardploeg2').val()
+        redcardploeg2: $('#redcardploeg2').val(),
+        emptyall: "yes"
        });
       });
       $('#updates').submit(function() {
-       console.log('test')
        client.publish('/updates', {
         type: $('#type').val(),
         speler: $('#speler').val(),
