@@ -62,7 +62,7 @@ block content
 
   script.
     var client = new Faye.Client('/faye',{
-     timeout: 20
+     timeout: 200
     });
     client.subscribe('/gegevens', function(message) {
      $('#naamploeg1').html(message.ploeg1)

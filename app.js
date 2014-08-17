@@ -19,7 +19,7 @@ var db = monk('mongodb://admin:azerty@kahana.mongohq.com:10023/WKApp');
 //faye server voor realtime gegevens
 var bayeux = new faye.NodeAdapter({
     	mount: '/faye',
-    	timeout: 45
+    	timeout: 200
     });
 var server = http.createServer(app);
 bayeux.attach(server);
